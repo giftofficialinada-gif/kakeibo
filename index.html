@@ -37,50 +37,32 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 html, body { height: 100%; background: var(--bg); color: var(--text); font-family: -apple-system, 'Hiragino Sans', sans-serif; overflow: hidden; }
-
-/* Layout */
 #app { display: flex; flex-direction: column; height: 100%; padding-top: var(--safe-top); }
 #content { flex: 1; overflow-y: auto; overflow-x: hidden; padding: 0 0 80px; -webkit-overflow-scrolling: touch; }
 #nav { position: fixed; bottom: 0; left: 0; right: 0; padding-bottom: var(--safe-bot); background: var(--bg2); border-top: 0.5px solid var(--border); display: flex; z-index: 100; }
 .nav-btn { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 10px 4px; border: none; background: none; color: var(--text3); font-size: 10px; cursor: pointer; transition: color .2s; }
 .nav-btn.active { color: var(--accent); }
 .nav-btn svg { width: 22px; height: 22px; }
-
-/* Header */
-.page-header { padding: 20px 20px 0; }
-.page-title { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
-.page-sub { font-size: 13px; color: var(--text2); margin-top: 2px; }
-
-/* Cards */
-.card { background: var(--card); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 16px; margin: 12px 16px 0; }
-.card-sm { border-radius: var(--radius-sm); padding: 12px 14px; }
-
-/* Pages */
 .page { display: none; animation: fadeIn .2s ease; }
 .page.active { display: block; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-
-/* Type toggle */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.page-header { padding: 20px 20px 0; display: flex; align-items: flex-start; justify-content: space-between; }
+.page-title { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+.page-sub { font-size: 13px; color: var(--text2); margin-top: 2px; }
+.card { background: var(--card); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 16px; margin: 12px 16px 0; }
 .type-toggle { display: flex; background: var(--bg3); border-radius: var(--radius-sm); padding: 3px; margin-bottom: 16px; }
 .type-btn { flex: 1; padding: 9px 6px; border: none; background: none; border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--text2); cursor: pointer; transition: all .2s; }
 .type-btn.active-exp { background: var(--exp-bg); color: var(--exp); }
 .type-btn.active-inc { background: var(--inc-bg); color: var(--inc); }
-
-/* Form */
-.form-group { margin-bottom: 14px; }
 .form-label { font-size: 12px; color: var(--text2); margin-bottom: 6px; display: block; }
 .form-input { width: 100%; background: var(--bg3); border: 0.5px solid var(--border2); border-radius: var(--radius-sm); padding: 12px 14px; font-size: 16px; color: var(--text); outline: none; -webkit-appearance: none; appearance: none; }
 .form-input:focus { border-color: var(--accent); }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .form-row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
 select.form-input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236060a0' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; }
-
-/* Primary button */
-.btn-primary { width: 100%; padding: 15px; background: linear-gradient(135deg, var(--accent), var(--accent2)); border: none; border-radius: var(--radius-sm); color: #fff; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 6px; letter-spacing: 0.3px; }
-.btn-primary:active { opacity: .85; transform: scale(.99); }
+.btn-primary { width: 100%; padding: 15px; background: linear-gradient(135deg, var(--accent), var(--accent2)); border: none; border-radius: var(--radius-sm); color: #fff; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 6px; }
+.btn-primary:active { opacity: .85; }
 .btn-ghost { width: 100%; padding: 12px; background: none; border: 0.5px solid var(--border2); border-radius: var(--radius-sm); color: var(--text2); font-size: 14px; cursor: pointer; margin-top: 8px; }
-
-/* Summary cards */
 .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 16px 0; }
 .summary-card { background: var(--card); border-radius: var(--radius-sm); padding: 14px; border: 0.5px solid var(--border); }
 .summary-card.full { grid-column: span 2; }
@@ -88,9 +70,6 @@ select.form-input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http
 .summary-val { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
 .summary-val.inc { color: var(--inc); }
 .summary-val.exp { color: var(--exp); }
-.summary-val.sav { color: var(--sav); }
-
-/* Month cards */
 .month-card { background: var(--card); border: 0.5px solid var(--border); border-radius: var(--radius); margin: 10px 16px 0; overflow: hidden; }
 .month-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; cursor: pointer; }
 .month-title { font-size: 16px; font-weight: 600; }
@@ -103,8 +82,6 @@ select.form-input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http
 .month-body.open { display: block; }
 .chevron { color: var(--text3); font-size: 11px; margin-left: 4px; transition: transform .2s; display: inline-block; }
 .chevron.open { transform: rotate(180deg); }
-
-/* Tx items */
 .tx-item { display: flex; align-items: center; justify-content: space-between; padding: 11px 16px; border-bottom: 0.5px solid var(--border); }
 .tx-item:last-child { border-bottom: none; }
 .tx-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-right: 10px; }
@@ -116,38 +93,27 @@ select.form-input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http
 .tx-amt.inc { color: var(--inc); }
 .tx-amt.exp { color: var(--exp); }
 .del-btn { background: none; border: none; color: var(--text3); font-size: 16px; cursor: pointer; padding: 2px 4px; line-height: 1; }
-
-/* Year nav */
 .year-nav { display: flex; align-items: center; gap: 12px; padding: 16px 16px 0; }
 .year-nav-btn { background: var(--bg3); border: 0.5px solid var(--border2); border-radius: 8px; padding: 6px 14px; font-size: 13px; color: var(--text); cursor: pointer; }
 .year-label { font-size: 20px; font-weight: 700; }
-
-/* Savings */
 .coin-section { padding: 0 16px; }
-.section-label { font-size: 12px; font-weight: 600; color: var(--text2); margin: 16px 0 8px; text-transform: uppercase; letter-spacing: 0.8px; }
+.section-label { font-size: 12px; font-weight: 600; color: var(--text2); margin: 16px 0 8px; letter-spacing: 0.8px; }
 .coin-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
 .coin-item { background: var(--card); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 12px; }
 .coin-name { font-size: 12px; color: var(--text2); margin-bottom: 8px; }
 .coin-ctrl { display: flex; align-items: center; gap: 6px; }
 .coin-ctrl-btn { background: var(--bg3); border: 0.5px solid var(--border2); border-radius: 6px; width: 28px; height: 28px; font-size: 16px; color: var(--text); cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.coin-ctrl-btn:active { opacity: .7; }
 .coin-input { flex: 1; background: var(--bg3); border: 0.5px solid var(--border2); border-radius: 6px; padding: 4px; text-align: center; font-size: 15px; font-weight: 600; color: var(--text); min-width: 0; }
 .coin-sub { font-size: 11px; color: var(--sav); margin-top: 6px; }
 .sav-total-card { background: linear-gradient(135deg, rgba(37,99,235,0.08), rgba(91,76,245,0.08)); border: 0.5px solid var(--sav-border); border-radius: var(--radius); padding: 20px; margin: 12px 16px 0; }
 .sav-total-label { font-size: 12px; color: var(--sav); margin-bottom: 6px; }
 .sav-total-val { font-size: 36px; font-weight: 700; color: var(--sav); letter-spacing: -1px; }
-
-/* Category settings */
 .cat-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
 .cat-pill { font-size: 13px; padding: 6px 12px; border-radius: 20px; border: 0.5px solid var(--exp-border); color: var(--exp); background: var(--exp-bg); cursor: pointer; display: flex; align-items: center; gap: 6px; }
-.cat-pill span { font-size: 11px; opacity: .7; }
 .add-cat-row { display: flex; gap: 8px; }
 .add-cat-row .form-input { flex: 1; }
 .add-cat-btn { background: var(--bg3); border: 0.5px solid var(--border2); border-radius: var(--radius-sm); padding: 12px 16px; color: var(--text); font-size: 14px; cursor: pointer; white-space: nowrap; }
-
-/* Upload / Scan */
-.upload-zone { border: 1.5px dashed var(--border2); border-radius: var(--radius); padding: 32px 16px; text-align: center; cursor: pointer; margin: 12px 16px 0; transition: background .2s; }
-.upload-zone:active { background: var(--bg3); }
+.upload-zone { border: 1.5px dashed var(--border2); border-radius: var(--radius); padding: 32px 16px; text-align: center; cursor: pointer; margin: 12px 16px 0; }
 .upload-zone input { display: none; }
 .upload-icon { width: 48px; height: 48px; background: var(--bg3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
 .scan-preview { max-width: 100%; max-height: 200px; border-radius: var(--radius-sm); display: block; margin: 0 auto 12px; }
@@ -156,8 +122,41 @@ select.form-input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http
 @keyframes bl { 0%,100%{opacity:1} 50%{opacity:.2} }
 .ai-tag { display: inline-flex; align-items: center; gap: 4px; background: var(--inc-bg); border: 0.5px solid var(--inc-border); color: var(--inc); font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 6px; margin-bottom: 12px; }
 .err-msg { background: var(--exp-bg); border: 0.5px solid var(--exp-border); color: var(--exp); border-radius: var(--radius-sm); padding: 12px; font-size: 13px; margin: 12px 16px 0; }
-
 .empty-state { text-align: center; padding: 40px 20px; color: var(--text3); font-size: 14px; }
+
+/* ===== USER SWITCHER ===== */
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 200; display: flex; flex-direction: column; justify-content: flex-end; animation: fadeIn .15s ease; }
+.sheet { background: var(--bg2); border-radius: 20px 20px 0 0; padding: 20px 20px calc(20px + var(--safe-bot)); max-height: 80vh; overflow-y: auto; }
+.sheet-handle { width: 36px; height: 4px; background: var(--border2); border-radius: 2px; margin: 0 auto 16px; }
+.sheet-title { font-size: 17px; font-weight: 700; margin-bottom: 16px; }
+.user-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.user-row { display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: var(--bg3); border-radius: var(--radius-sm); cursor: pointer; border: 1.5px solid transparent; transition: border-color .15s; }
+.user-row.active-user { border-color: var(--accent); }
+.user-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; flex-shrink: 0; color: #fff; }
+.user-name { font-size: 15px; font-weight: 600; flex: 1; }
+.user-lock { font-size: 13px; color: var(--text3); }
+.add-user-row { display: flex; gap: 8px; }
+
+/* PIN screen */
+.pin-screen { position: fixed; inset: 0; background: var(--bg2); z-index: 300; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px calc(40px + var(--safe-bot)); animation: fadeIn .2s ease; }
+.pin-avatar { width: 72px; height: 72px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.pin-username { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.pin-hint { font-size: 14px; color: var(--text2); margin-bottom: 32px; }
+.pin-dots { display: flex; gap: 16px; margin-bottom: 32px; }
+.pin-dot { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--border2); transition: all .15s; }
+.pin-dot.filled { background: var(--accent); border-color: var(--accent); }
+.pin-dot.error { background: var(--exp); border-color: var(--exp); animation: shake .3s ease; }
+@keyframes shake { 0%,100%{transform:none} 25%{transform:translateX(-4px)} 75%{transform:translateX(4px)} }
+.pin-pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; width: 100%; max-width: 280px; }
+.pin-key { background: var(--bg3); border: none; border-radius: var(--radius-sm); padding: 18px; font-size: 22px; font-weight: 600; color: var(--text); cursor: pointer; transition: background .1s; }
+.pin-key:active { background: var(--border2); }
+.pin-key.del { font-size: 18px; color: var(--text2); }
+.pin-cancel { margin-top: 16px; background: none; border: none; color: var(--text2); font-size: 15px; cursor: pointer; padding: 8px; }
+
+/* Current user badge in header */
+.user-badge { display: flex; align-items: center; gap: 6px; background: var(--bg3); border-radius: 20px; padding: 5px 10px 5px 5px; cursor: pointer; border: 0.5px solid var(--border2); }
+.user-badge-avatar { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #fff; }
+.user-badge-name { font-size: 13px; font-weight: 600; }
 </style>
 </head>
 <body>
@@ -166,7 +165,10 @@ select.form-input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http
 
     <!-- Scan Page -->
     <div id="page-scan" class="page active">
-      <div class="page-header"><div class="page-title">レシート読込</div><div class="page-sub">写真を撮って自動入力</div></div>
+      <div class="page-header">
+        <div><div class="page-title">レシート読込</div><div class="page-sub">写真を撮って自動入力</div></div>
+        <div style="padding-top:6px" id="hdr-badge-scan"></div>
+      </div>
       <label class="upload-zone" for="rfile">
         <input type="file" id="rfile" accept="image/*" capture="environment" onchange="handleFile(this)">
         <div class="upload-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9090b0" stroke-width="1.5" width="24" height="24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
@@ -178,19 +180,22 @@ select.form-input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http
 
     <!-- Input Page -->
     <div id="page-input" class="page">
-      <div class="page-header"><div class="page-title">手動入力</div><div class="page-sub">収支を記録する</div></div>
+      <div class="page-header">
+        <div><div class="page-title">手動入力</div><div class="page-sub">収支を記録する</div></div>
+        <div style="padding-top:6px" id="hdr-badge-input"></div>
+      </div>
       <div class="card" style="margin-top:16px">
         <div class="type-toggle" id="itoggle">
           <button class="type-btn active-exp" onclick="setIType('expense')">支出</button>
           <button class="type-btn" onclick="setIType('income')">収入</button>
         </div>
         <div class="form-row" style="margin-bottom:14px">
-          <div class="form-group" style="margin:0"><label class="form-label">金額（円）</label><input type="number" class="form-input" id="f-amt" placeholder="0" inputmode="numeric"></div>
-          <div class="form-group" style="margin:0"><label class="form-label">日付</label><input type="date" class="form-input" id="f-date"></div>
+          <div><label class="form-label">金額（円）</label><input type="number" class="form-input" id="f-amt" placeholder="0" inputmode="numeric"></div>
+          <div><label class="form-label">日付</label><input type="date" class="form-input" id="f-date"></div>
         </div>
         <div class="form-row" style="margin-bottom:14px">
-          <div class="form-group" style="margin:0"><label class="form-label">カテゴリ</label><select class="form-input" id="f-cat"></select></div>
-          <div class="form-group" style="margin:0"><label class="form-label">メモ</label><input type="text" class="form-input" id="f-memo" placeholder="任意"></div>
+          <div><label class="form-label">カテゴリ</label><select class="form-input" id="f-cat"></select></div>
+          <div><label class="form-label">メモ</label><input type="text" class="form-input" id="f-memo" placeholder="任意"></div>
         </div>
         <button class="btn-primary" onclick="addManual()">追加する</button>
       </div>
@@ -198,25 +203,26 @@ select.form-input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http
 
     <!-- Savings Page -->
     <div id="page-savings" class="page">
-      <div class="page-header"><div class="page-title">貯金</div><div class="page-sub">硬貨・紙幣の枚数を管理</div></div>
-      <div class="sav-total-card">
-        <div class="sav-total-label">貯金合計</div>
-        <div class="sav-total-val" id="sav-total">¥0</div>
+      <div class="page-header">
+        <div><div class="page-title">貯金</div><div class="page-sub">硬貨・紙幣の枚数を管理</div></div>
+        <div style="padding-top:6px" id="hdr-badge-savings"></div>
       </div>
+      <div class="sav-total-card"><div class="sav-total-label">貯金合計</div><div class="sav-total-val" id="sav-total">¥0</div></div>
       <div class="coin-section">
         <div class="section-label">硬貨</div>
         <div class="coin-grid" id="coin-grid"></div>
         <div class="section-label">紙幣</div>
         <div class="coin-grid" id="note-grid"></div>
       </div>
-      <div style="padding:12px 16px 0">
-        <button class="btn-primary" onclick="saveSavings()">保存する</button>
-      </div>
+      <div style="padding:12px 16px 0"><button class="btn-primary" onclick="saveSavings()">保存する</button></div>
     </div>
 
     <!-- History Page -->
     <div id="page-history" class="page">
-      <div class="page-header"><div class="page-title">月別履歴</div></div>
+      <div class="page-header">
+        <div><div class="page-title">月別履歴</div></div>
+        <div style="padding-top:6px" id="hdr-badge-history"></div>
+      </div>
       <div class="summary-grid" id="summary-grid"></div>
       <div class="year-nav">
         <button class="year-nav-btn" onclick="changeYear(-1)">◀</button>
@@ -228,67 +234,282 @@ select.form-input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http
 
     <!-- Settings Page -->
     <div id="page-settings" class="page">
-      <div class="page-header"><div class="page-title">カテゴリ設定</div><div class="page-sub">タップで削除・追加できます</div></div>
+      <div class="page-header">
+        <div><div class="page-title">設定</div></div>
+        <div style="padding-top:6px" id="hdr-badge-settings"></div>
+      </div>
       <div class="card" style="margin-top:16px">
+        <div style="font-size:14px;font-weight:600;margin-bottom:12px">カテゴリ設定</div>
         <div class="type-toggle" id="ctoggle">
           <button class="type-btn active-exp" onclick="setCType('expense')">支出</button>
           <button class="type-btn" onclick="setCType('income')">収入</button>
         </div>
-        <div class="section-label" id="cat-sec-lbl" style="margin-top:0">支出カテゴリ</div>
+        <div class="section-label" id="cat-sec-lbl">支出カテゴリ</div>
         <div class="cat-pills" id="cat-pills"></div>
         <div class="add-cat-row">
           <input type="text" class="form-input" id="new-cat" placeholder="新しいカテゴリ名">
           <button class="add-cat-btn" onclick="addCat()">追加</button>
         </div>
       </div>
+      <!-- User management in settings -->
+      <div class="card" style="margin-top:12px">
+        <div style="font-size:14px;font-weight:600;margin-bottom:12px">ユーザー管理</div>
+        <div id="settings-user-list"></div>
+        <button class="btn-ghost" style="margin-top:8px" onclick="openUserSheet()">ユーザーを切り替え / 追加</button>
+      </div>
     </div>
 
   </div>
 
-  <!-- Bottom Nav -->
   <nav id="nav">
     <button class="nav-btn active" onclick="switchPage('scan')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-      読込
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>読込
     </button>
     <button class="nav-btn" onclick="switchPage('input')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      入力
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>入力
     </button>
     <button class="nav-btn" onclick="switchPage('savings')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><line x1="16.71" y1="13.88" x2="13.05" y2="15.32"/></svg>
-      貯金
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/></svg>貯金
     </button>
     <button class="nav-btn" onclick="switchPage('history')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-      履歴
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>履歴
     </button>
     <button class="nav-btn" onclick="switchPage('settings')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-      設定
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>設定
     </button>
   </nav>
+</div>
+
+<!-- User sheet overlay -->
+<div id="user-sheet" style="display:none">
+  <div class="overlay" onclick="closeUserSheet(event)">
+    <div class="sheet" onclick="event.stopPropagation()">
+      <div class="sheet-handle"></div>
+      <div class="sheet-title">ユーザーを選択</div>
+      <div class="user-list" id="user-list"></div>
+      <div style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px">新しいユーザーを追加</div>
+      <div style="display:flex;gap:8px;margin-bottom:10px">
+        <input type="text" class="form-input" id="new-user-name" placeholder="名前" style="flex:1">
+        <input type="text" class="form-input" id="new-user-pin" placeholder="PIN（任意）" inputmode="numeric" maxlength="4" style="width:100px">
+        <button class="add-cat-btn" onclick="addUser()">追加</button>
+      </div>
+      <div style="font-size:12px;color:var(--text3)">PINは4桁の数字。設定しない場合は空欄のままでOK。</div>
+    </div>
+  </div>
+</div>
+
+<!-- PIN screen -->
+<div id="pin-screen" style="display:none">
+  <div class="pin-screen">
+    <div class="pin-avatar" id="pin-avatar"></div>
+    <div class="pin-username" id="pin-username"></div>
+    <div class="pin-hint">4桁のPINを入力してください</div>
+    <div class="pin-dots" id="pin-dots">
+      <div class="pin-dot" id="pd0"></div>
+      <div class="pin-dot" id="pd1"></div>
+      <div class="pin-dot" id="pd2"></div>
+      <div class="pin-dot" id="pd3"></div>
+    </div>
+    <div class="pin-pad">
+      <button class="pin-key" onclick="pinKey('1')">1</button>
+      <button class="pin-key" onclick="pinKey('2')">2</button>
+      <button class="pin-key" onclick="pinKey('3')">3</button>
+      <button class="pin-key" onclick="pinKey('4')">4</button>
+      <button class="pin-key" onclick="pinKey('5')">5</button>
+      <button class="pin-key" onclick="pinKey('6')">6</button>
+      <button class="pin-key" onclick="pinKey('7')">7</button>
+      <button class="pin-key" onclick="pinKey('8')">8</button>
+      <button class="pin-key" onclick="pinKey('9')">9</button>
+      <button class="pin-key" style="visibility:hidden"></button>
+      <button class="pin-key" onclick="pinKey('0')">0</button>
+      <button class="pin-key del" onclick="pinDel()">⌫</button>
+    </div>
+    <button class="pin-cancel" onclick="cancelPin()">キャンセル</button>
+  </div>
 </div>
 
 <script>
 const COINS=[{l:'1円玉',v:1},{l:'5円玉',v:5},{l:'10円玉',v:10},{l:'50円玉',v:50},{l:'100円玉',v:100},{l:'500円玉',v:500}];
 const NOTES=[{l:'1,000円札',v:1000},{l:'2,000円札',v:2000},{l:'5,000円札',v:5000},{l:'10,000円札',v:10000}];
 const COLORS={食費:'#2563eb',日用品:'#0a9e6e',交通費:'#d97706',光熱費:'#5b4cf5',娯楽:'#e03060',医療:'#dc4e2a',その他:'#6e6e80',給与:'#0a9e6e',副業:'#2563eb',ボーナス:'#d97706',その他収入:'#6e6e80'};
+const AVATAR_COLORS=['#5b4cf5','#0a9e6e','#e03060','#d97706','#2563eb','#dc4e2a','#8b3cf7','#0891b2'];
+const DEF_EXP=['食費','日用品','交通費','光熱費','娯楽','医療','その他'];
+const DEF_INC=['給与','副業','ボーナス','その他収入'];
 
 function gs(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}}
 function ss(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+function fmt(n){return '¥'+Math.round(n).toLocaleString('ja-JP');}
+function cc(cat){return COLORS[cat]||'#6e6e80';}
 
-let txs=gs('kk_tx',[]);
-let eCats=gs('kk_ec',['食費','日用品','交通費','光熱費','娯楽','医療','その他']);
-let iCats=gs('kk_ic',['給与','副業','ボーナス','その他収入']);
-let savings=gs('kk_sav',{});
+// ===== USER SYSTEM =====
+let users = gs('kk_users', [{id:'default',name:'自分',pin:'',color:AVATAR_COLORS[0]}]);
+let currentUserId = gs('kk_current_user', users[0].id);
+
+function uid(){ return Date.now().toString(36); }
+function getUser(id){ return users.find(u=>u.id===id)||users[0]; }
+function curUser(){ return getUser(currentUserId); }
+function uKey(key){ return `kk_${currentUserId}_${key}`; }
+
+// Per-user data
+function loadUserData(){
+  txs = gs(uKey('tx'), []);
+  eCats = gs(uKey('ec'), [...DEF_EXP]);
+  iCats = gs(uKey('ic'), [...DEF_INC]);
+  savings = gs(uKey('sav'), {});
+}
+
+let txs=[], eCats=[...DEF_EXP], iCats=[...DEF_INC], savings={};
 let viewYear=new Date().getFullYear();
 let openM=new Set();
 let iType='expense', cType='expense';
+let pinTarget=null, pinEntry='';
 
-function fmt(n){return '¥'+Math.round(n).toLocaleString('ja-JP');}
-function cc(cat){return COLORS[cat]||'#9090b0';}
+loadUserData();
 
+function renderUserBadges(){
+  const u=curUser();
+  const html=`<div class="user-badge" onclick="openUserSheet()"><div class="user-avatar user-badge-avatar" style="background:${u.color}">${u.name.slice(0,1)}</div><span class="user-badge-name">${u.name}</span></div>`;
+  ['scan','input','savings','history','settings'].forEach(p=>{
+    const el=document.getElementById('hdr-badge-'+p);
+    if(el)el.innerHTML=html;
+  });
+}
+
+function openUserSheet(){
+  closeOverlays();
+  renderUserList();
+  document.getElementById('user-sheet').style.display='block';
+}
+function closeUserSheet(e){
+  if(!e||e.target.classList.contains('overlay'))
+    document.getElementById('user-sheet').style.display='none';
+}
+function closeOverlays(){
+  document.getElementById('user-sheet').style.display='none';
+}
+
+function renderUserList(){
+  const list=document.getElementById('user-list');
+  list.innerHTML=users.map((u,i)=>`
+    <div class="user-row${u.id===currentUserId?' active-user':''}" onclick="selectUser('${u.id}')">
+      <div class="user-avatar" style="background:${u.color}">${u.name.slice(0,1)}</div>
+      <span class="user-name">${u.name}</span>
+      <span class="user-lock">${u.pin?'🔒':''}</span>
+      ${users.length>1?`<button onclick="event.stopPropagation();deleteUser('${u.id}')" style="background:none;border:none;color:var(--text3);font-size:13px;cursor:pointer;padding:4px">✕</button>`:''}
+    </div>
+  `).join('');
+  // settings page list
+  const sl=document.getElementById('settings-user-list');
+  if(sl) sl.innerHTML=users.map(u=>`
+    <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:0.5px solid var(--border)">
+      <div class="user-avatar" style="background:${u.color};width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff">${u.name.slice(0,1)}</div>
+      <span style="flex:1;font-size:14px;font-weight:${u.id===currentUserId?'700':'400'}">${u.name}${u.id===currentUserId?' （現在）':''}</span>
+      <span style="font-size:12px;color:var(--text3)">${u.pin?'PIN設定済み':'PINなし'}</span>
+    </div>
+  `).join('');
+}
+
+function selectUser(id){
+  const u=getUser(id);
+  if(u.pin){
+    closeOverlays();
+    showPin(id);
+  } else {
+    switchUser(id);
+    closeOverlays();
+  }
+}
+
+function switchUser(id){
+  currentUserId=id;
+  ss('kk_current_user',id);
+  loadUserData();
+  openM=new Set();
+  viewYear=new Date().getFullYear();
+  renderUserBadges();
+  updCatSel();
+  const cur=document.querySelector('.page.active');
+  if(cur){
+    const name=cur.id.replace('page-','');
+    switchPage(name);
+  }
+}
+
+function addUser(){
+  const name=document.getElementById('new-user-name').value.trim();
+  const pin=document.getElementById('new-user-pin').value.trim();
+  if(!name){alert('名前を入力してください');return;}
+  if(pin&&(pin.length!==4||!/^\d{4}$/.test(pin))){alert('PINは4桁の数字にしてください');return;}
+  const color=AVATAR_COLORS[users.length%AVATAR_COLORS.length];
+  const newUser={id:uid(),name,pin,color};
+  users.push(newUser);
+  ss('kk_users',users);
+  document.getElementById('new-user-name').value='';
+  document.getElementById('new-user-pin').value='';
+  renderUserList();
+}
+
+function deleteUser(id){
+  if(users.length<=1){alert('最後のユーザーは削除できません');return;}
+  if(!confirm('このユーザーのデータもすべて削除されます。よろしいですか？'))return;
+  ['tx','ec','ic','sav'].forEach(k=>localStorage.removeItem(`kk_${id}_${k}`));
+  users=users.filter(u=>u.id!==id);
+  ss('kk_users',users);
+  if(currentUserId===id) switchUser(users[0].id);
+  else renderUserList();
+}
+
+// PIN
+function showPin(targetId){
+  pinTarget=targetId;
+  pinEntry='';
+  const u=getUser(targetId);
+  document.getElementById('pin-avatar').style.background=u.color;
+  document.getElementById('pin-avatar').textContent=u.name.slice(0,1);
+  document.getElementById('pin-username').textContent=u.name;
+  updatePinDots();
+  document.getElementById('pin-screen').style.display='block';
+}
+
+function pinKey(k){
+  if(pinEntry.length>=4)return;
+  pinEntry+=k;
+  updatePinDots();
+  if(pinEntry.length===4) setTimeout(checkPin,120);
+}
+
+function pinDel(){
+  pinEntry=pinEntry.slice(0,-1);
+  updatePinDots();
+}
+
+function updatePinDots(){
+  for(let i=0;i<4;i++){
+    const d=document.getElementById('pd'+i);
+    d.className='pin-dot'+(i<pinEntry.length?' filled':'');
+  }
+}
+
+function checkPin(){
+  const u=getUser(pinTarget);
+  if(pinEntry===u.pin){
+    document.getElementById('pin-screen').style.display='none';
+    switchUser(pinTarget);
+  } else {
+    for(let i=0;i<4;i++) document.getElementById('pd'+i).className='pin-dot error';
+    setTimeout(()=>{
+      pinEntry='';
+      updatePinDots();
+    },600);
+  }
+}
+
+function cancelPin(){
+  document.getElementById('pin-screen').style.display='none';
+  pinTarget=null;pinEntry='';
+}
+
+// ===== APP LOGIC =====
 function switchPage(name){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
@@ -299,10 +520,9 @@ function switchPage(name){
   if(name==='input'){updCatSel();if(!document.getElementById('f-date').value)document.getElementById('f-date').value=new Date().toISOString().slice(0,10);}
   if(name==='history')renderHistory();
   if(name==='savings')renderSavings();
-  if(name==='settings')renderCats();
+  if(name==='settings'){renderCats();renderUserList();}
 }
 
-// Input type
 function setIType(t){
   iType=t;
   document.querySelectorAll('#itoggle .type-btn').forEach((b,i)=>{
@@ -313,7 +533,8 @@ function setIType(t){
 }
 function updCatSel(){
   const cats=iType==='income'?iCats:eCats;
-  document.getElementById('f-cat').innerHTML=cats.map(c=>`<option>${c}</option>`).join('');
+  const sel=document.getElementById('f-cat');
+  if(sel)sel.innerHTML=cats.map(c=>`<option>${c}</option>`).join('');
 }
 
 function addManual(){
@@ -321,13 +542,12 @@ function addManual(){
   const d=document.getElementById('f-date').value;
   if(!a||a<=0||!d){alert('金額と日付を入力してください');return;}
   txs.push({id:Date.now(),type:iType,amount:a,cat:document.getElementById('f-cat').value,date:d,memo:document.getElementById('f-memo').value.trim()});
-  ss('kk_tx',txs);
+  ss(uKey('tx'),txs);
   document.getElementById('f-amt').value='';
   document.getElementById('f-memo').value='';
   switchPage('history');
 }
 
-// Category settings
 function setCType(t){
   cType=t;
   document.querySelectorAll('#ctoggle .type-btn').forEach((b,i)=>{
@@ -344,23 +564,21 @@ function renderCats(){
 function addCat(){
   const inp=document.getElementById('new-cat');
   const n=inp.value.trim();if(!n)return;
-  if(cType==='expense'){if(!eCats.includes(n)){eCats.push(n);ss('kk_ec',eCats);}}
-  else{if(!iCats.includes(n)){iCats.push(n);ss('kk_ic',iCats);}}
+  if(cType==='expense'){if(!eCats.includes(n)){eCats.push(n);ss(uKey('ec'),eCats);}}
+  else{if(!iCats.includes(n)){iCats.push(n);ss(uKey('ic'),iCats);}}
   inp.value='';renderCats();
 }
 function delCat(i){
-  if(cType==='expense'){eCats.splice(i,1);ss('kk_ec',eCats);}
-  else{iCats.splice(i,1);ss('kk_ic',iCats);}
+  if(cType==='expense'){eCats.splice(i,1);ss(uKey('ec'),eCats);}
+  else{iCats.splice(i,1);ss(uKey('ic'),iCats);}
   renderCats();
 }
 
-// Savings
 function renderSavings(){
   function mkGrid(types,id){
     document.getElementById(id).innerHTML=types.map(({l,v})=>{
       const k='c'+v,cnt=savings[k]||0;
-      return`<div class="coin-item">
-        <div class="coin-name">${l}</div>
+      return`<div class="coin-item"><div class="coin-name">${l}</div>
         <div class="coin-ctrl">
           <button class="coin-ctrl-btn" onclick="adjS('${k}',-1)">−</button>
           <input class="coin-input" type="number" id="s-${k}" value="${cnt}" min="0" oninput="updST()">
@@ -393,11 +611,10 @@ function saveSavings(){
     const k='c'+v,inp=document.getElementById('s-'+k);
     if(inp)savings[k]=Math.max(0,parseInt(inp.value)||0);
   });
-  ss('kk_sav',savings);
+  ss(uKey('sav'),savings);
   alert('貯金を保存しました');
 }
 
-// History
 function changeYear(d){viewYear+=d;renderHistory();}
 function renderHistory(){
   document.getElementById('year-lbl').textContent=viewYear+'年';
@@ -449,10 +666,9 @@ function togM(key){
 }
 function delTx(id){
   if(!confirm('この記録を削除しますか？'))return;
-  txs=txs.filter(t=>t.id!==id);ss('kk_tx',txs);renderHistory();
+  txs=txs.filter(t=>t.id!==id);ss(uKey('tx'),txs);renderHistory();
 }
 
-// Receipt scan
 function handleFile(input){
   const file=input.files[0];if(!file)return;
   const reader=new FileReader();
@@ -478,10 +694,7 @@ async function scanReceipt(b64,mime){
     const data=await res.json();
     const txt=data.content.map(c=>c.text||'').join('');
     let p;try{p=JSON.parse(txt.replace(/```json|```/g,'').trim());}catch(e){throw new Error();}
-    if(p.error){
-      const img=el.querySelector('img');
-      el.innerHTML=(img?img.outerHTML:'')+'<div class="err-msg" style="margin:12px 0 0">'+p.error+'</div>';return;
-    }
+    if(p.error){const img=el.querySelector('img');el.innerHTML=(img?img.outerHTML:'')+'<div class="err-msg" style="margin:12px 0 0">'+p.error+'</div>';return;}
     const img=el.querySelector('img');const today=new Date().toISOString().slice(0,10);
     el.innerHTML=(img?img.outerHTML:'')+`<div class="card" style="margin:12px 0 0">
       <div class="ai-tag">AIが自動入力しました — 確認してください</div>
@@ -511,7 +724,7 @@ function addFromScan(){
   const d=document.getElementById('s-date').value;
   if(!a||a<=0||!d){alert('金額と日付を確認してください');return;}
   txs.push({id:Date.now(),type:document.getElementById('s-type').value,amount:a,cat:document.getElementById('s-cat').value,date:d,memo:document.getElementById('s-memo').value.trim()});
-  ss('kk_tx',txs);resetScan();switchPage('history');
+  ss(uKey('tx'),txs);resetScan();switchPage('history');
 }
 function resetScan(){document.getElementById('scan-result').innerHTML='';document.getElementById('rfile').value='';}
 
@@ -519,6 +732,7 @@ function resetScan(){document.getElementById('scan-result').innerHTML='';documen
 document.getElementById('f-date').value=new Date().toISOString().slice(0,10);
 document.getElementById('year-lbl').textContent=viewYear+'年';
 updCatSel();
+renderUserBadges();
 </script>
 </body>
 </html>
